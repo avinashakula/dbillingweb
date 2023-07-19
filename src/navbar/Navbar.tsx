@@ -1,4 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
+import * as CONSTANT from "../utilities/constants/default";
 
 function NavBar() {
   return (
@@ -7,7 +8,7 @@ function NavBar() {
       <nav className="navbar navbar-expand-lg bg-light bg-gradient shadow">
         <div className="container">
           <Link className="navbar-brand fw-medium " to="#">
-            D-Billing
+            {CONSTANT.navBar.LOGO_TEXT}
           </Link>
           <button
             className="navbar-toggler"
@@ -39,47 +40,59 @@ function NavBar() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Billing
+                  {CONSTANT.navBar.BILLING.TAB_NAME}
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link className="dropdown-item" to="/billing/newBilling">
-                      Billing
+                    <Link className="dropdown-item" to={CONSTANT.navBar.BILLING.BILLING.FULL_ROUTE}>
+                      {CONSTANT.navBar.BILLING.BILLING.TITLE}
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/billing/allTransactions">
-                      All Transactions
+                    <Link
+                      className="dropdown-item"
+                      to="/billing/allTransactions"
+                    >
+                      {CONSTANT.navBar.BILLING.ALL_TRANSACTIONS}
                     </Link>
                   </li>
                   <li>
                     <Link className="dropdown-item" to="/billing/bills">
-                      Bills
+                      {CONSTANT.navBar.BILLING.BILLS}
                     </Link>
                   </li>
                   <li>
                     <Link className="dropdown-item" to="/billing/purchases">
-                      Purchases
+                      {CONSTANT.navBar.BILLING.PURCHASES}
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/billing/pendingCredits">
-                      Pending Credits
+                    <Link
+                      className="dropdown-item"
+                      to="/billing/pendingCredits"
+                    >
+                      {CONSTANT.navBar.BILLING.PENDING_CREDITS}
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/billing/completedCredits">
-                      Completed Credits
+                    <Link
+                      className="dropdown-item"
+                      to="/billing/completedCredits"
+                    >
+                      {CONSTANT.navBar.BILLING.COMPLETED_CREDITS}
                     </Link>
                   </li>
                   <li>
                     <Link className="dropdown-item" to="/billing/payments">
-                      Payments
+                      {CONSTANT.navBar.BILLING.PAYMENTS}
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/billing/pendingInvoices">
-                      Pending Invoices
+                    <Link
+                      className="dropdown-item"
+                      to="/billing/pendingInvoices"
+                    >
+                      {CONSTANT.navBar.BILLING.PENDING_INVOICES}
                     </Link>
                   </li>
                 </ul>
@@ -92,7 +105,7 @@ function NavBar() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Stock
+                  {CONSTANT.navBar.STOCK}
                 </a>
                 <ul className="dropdown-menu">
                   <li>
@@ -124,12 +137,12 @@ function NavBar() {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/ledgerRetail">
-                  Ledger Retail
+                  {CONSTANT.navBar.LEDGER_RETAIL}
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/ledgerPurchase">
-                  Ledger Purchase
+                  {CONSTANT.navBar.LEDGER_PURCHASE}
                 </Link>
               </li>
               <li className="nav-item dropdown">
@@ -140,7 +153,7 @@ function NavBar() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Customers
+                  {CONSTANT.navBar.CUSTOMERS}
                 </a>
                 <ul className="dropdown-menu">
                   <li>
@@ -149,8 +162,11 @@ function NavBar() {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/customers/existedCustomers">
-                    Existed Customers
+                    <Link
+                      className="dropdown-item"
+                      to="/customers/existedCustomers"
+                    >
+                      Existed Customers
                     </Link>
                   </li>
                   <li>
@@ -168,7 +184,7 @@ function NavBar() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Moderators
+                  {CONSTANT.navBar.MODERATORS}
                 </a>
                 <ul className="dropdown-menu">
                   <li>
@@ -177,13 +193,15 @@ function NavBar() {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/moderators/existedModerators">
-                    Existed Moderators
+                    <Link
+                      className="dropdown-item"
+                      to="/moderators/existedModerators"
+                    >
+                      Existed Moderators
                     </Link>
                   </li>
                 </ul>
               </li>
-             
             </ul>
 
             <div className="d-flex" role="profile">
@@ -194,11 +212,15 @@ function NavBar() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <i className="bi bi-person-circle"></i> Profile
+                  <i className="bi bi-person-circle"></i>{" "}
+                  {CONSTANT.navBar.PROFILE}
                 </button>
                 <ul className="dropdown-menu dropdown-menu-end">
                   <li>
-                    <Link className="dropdown-item" to="/profile/changePassword">
+                    <Link
+                      className="dropdown-item"
+                      to="/profile/changePassword"
+                    >
                       Change Password
                     </Link>
                   </li>

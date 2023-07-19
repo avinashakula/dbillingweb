@@ -1,4 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
+import * as CONSTANT from "../../utilities/constants/default"
 
 function Billing(){
     return (
@@ -8,8 +9,8 @@ function Billing(){
                     <button className="btn btn-primary btn-sm"  id="dropdownMenu" data-bs-toggle="dropdown"><i className="bi bi-arrow-down-circle-fill"></i></button>
                     <ul style={{padding:"10px"}} className="dropdown-menu" aria-labelledby="dropdownMenu">
                             <li>
-                                <Link to="newBilling" className="list-group-item">
-                               Billing
+                                <Link to={CONSTANT.navBar.BILLING.BILLING.NESTED_ROUTE} className="list-group-item">
+                                {CONSTANT.navBar.BILLING.BILLING.TITLE}
                                 </Link>
                             </li>
                             <li>
