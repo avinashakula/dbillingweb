@@ -1,7 +1,14 @@
+import PageHeader from "../../utilities/components/pageHeader";
+
 function PendingInvoices(){
     return (
-        <div className="container mx-auto" style={{"width":"200px"}}>
-           Pending Invoices
+        <div className="container">
+            <div className="row">
+                <PageHeader title={"Pending Invoices"} />
+                <div className="container-fluid">
+                
+                </div>
+            </div>
         </div>
     )
 }

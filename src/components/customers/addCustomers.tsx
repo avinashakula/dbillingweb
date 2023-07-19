@@ -1,92 +1,88 @@
+import { useState, useEffect } from "react";
+import PageHeader from "../../utilities/components/pageHeader";
 function AddCustomers() {
+  const [customerData, setCustomerData] = useState({});
+  const updateCustomersData = (e:any) => {
+    if( e.target.name == "type" ){
+      setCustomerData({...customerData, type:e.target.value});
+    }else if( e.target.name == "name" ){
+      setCustomerData({...customerData, name:e.target.value});
+    }else if( e.target.name == "mobile" ){
+      setCustomerData({...customerData, mobile:e.target.value});
+    }else if( e.target.name == "state" ){
+      setCustomerData({...customerData, state:e.target.value});
+    }else if( e.target.name == "city" ){
+      setCustomerData({...customerData, city:e.target.value});
+    }else if( e.target.name == "pincode" ){
+      setCustomerData({...customerData, pincode:e.target.value});
+    }else if( e.target.name == "gstin" ){
+      setCustomerData({...customerData, gstin:e.target.value});
+    }else if( e.target.name == "address" ){
+      setCustomerData({...customerData, address:e.target.value});
+    }
+  }
+
+  const sendCustomersData = ()=>{
+    console.log(customerData);
+  }
+
   return (
     <div className="container">
       <div className="row">
-        <h5 className="mt-3 fw-medium ">Add Customers</h5>
+        <PageHeader title={"Add Customer"} />
         <div className="container-fluid">
-          <div className="col-md-6 offset-md-3 bg-light p-3 rounded-4 border  ">
-            <form >
+          <div className="col-md-6 offset-md-3 bg-white p-3 rounded-4 shadow-sm">
+            {/* <form> */}
               <div className="mb-3">
-                <label className="form-label">Customer</label>
+                <label className="form-label">Type of Person</label>
                 <select
+                  name="type"
                   className="form-control"
-                  aria-describedby="emailHelp"
+                  aria-describedby="typeOfUser"
+                  onChange={updateCustomersData}
                 >
-                    <option value={"customer"}>Customer</option>
-                    <option value={"purchaser"}>Purchaser</option>
+                  <option value={"customer"}>Customer</option>
+                  <option value={"purchaser"}>Purchaser</option>
                 </select>
-                {/* <div id="emailHelp" className="form-text">
-                  We'll never share your email with anyone else.
-                </div> */}
-              </div>
-              <div className="mb-3">
-                <label className="form-label">Mobile</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  aria-describedby="emailHelp"
-                />
               </div>
               <div className="mb-3">
                 <label className="form-label">Name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  aria-describedby="emailHelp"
-                />
-              </div>
-              
-              <div className="mb-3">
-                <label className="form-label">State</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  aria-describedby="emailHelp"
-                />
+                <input name="name" type="text" className="form-control" onKeyUp={updateCustomersData} />
               </div>
               <div className="mb-3">
-                <label className="form-label">City</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  aria-describedby="emailHelp"
-                />
+                <label className="form-label">Mobile</label>
+                <input name="mobile" type="text" className="form-control" onKeyUp={updateCustomersData} />
               </div>
-              <div className="mb-3">
-                <label className="form-label">Pincode</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  aria-describedby="emailHelp"
-                />
+
+              <div className="row mb-3">
+                <div className="col-md-6">
+                  <label className="form-label">State</label>
+                  <input name="state" type="text" className="form-control" onKeyUp={updateCustomersData} />
+                </div>
+                <div className="col-md-6">
+                  <label className="form-label">City</label>
+                  <input name="city" type="text" className="form-control" onKeyUp={updateCustomersData} />
+                </div>
               </div>
-              <div className="mb-3">
-                <label className="form-label">GSTIN</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  aria-describedby="emailHelp"
-                />
+              <div className="row mb-3">
+                <div className="col-md-6">
+                  <label className="form-label">Pincode</label>
+                  <input name="pincode" type="text" className="form-control" onKeyUp={updateCustomersData} />
+                </div>
+                <div className="col-md-6">
+                  <label className="form-label">GSTIN</label>
+                  <input name="gstin" type="text" className="form-control" onKeyUp={updateCustomersData} />
+                </div>
               </div>
+
               <div className="mb-3">
                 <label className="form-label">Address</label>
-                <textarea
-                  className="form-control"
-                  aria-describedby="emailHelp"
-                />
+                <textarea  name="address" className="form-control"  onKeyUp={updateCustomersData}/>
               </div>
-              {/* <div className="mb-3">
-                <label className="form-label">Password</label>
-                <input type="password" className="form-control" />
-              </div>
-              <div className="mb-3 form-check">
-                <input type="checkbox" className="form-check-input" />
-                <label className="form-check-label">Check me out</label>
-              </div> */}
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-primary" onClick={sendCustomersData}>
                 Submit
               </button>
-            </form>
+            {/* </form> */}
           </div>
         </div>
       </div>

@@ -1,7 +1,14 @@
+import PageHeader from "../../utilities/components/pageHeader";
+
 function AddStock(){
     return (
-        <div className="container mx-auto" style={{"width":"200px"}}>
-            Add Stock
+        <div className="container">
+            <div className="row">
+                <PageHeader title={"Add Stock"} />
+                <div className="container-fluid">
+                
+                </div>
+            </div>
         </div>
     )
 }

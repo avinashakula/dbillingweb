@@ -1,7 +1,14 @@
+import PageHeader from "../../utilities/components/pageHeader";
+
 function InactiveStock(){
     return (
-        <div className="container mx-auto" style={{"width":"200px"}}>
-            Inactive Stock
+        <div className="container">
+            <div className="row">
+                <PageHeader title={"Inactive Stock"} />
+                <div className="container-fluid">
+                
+                </div>
+            </div>
         </div>
     )
 }

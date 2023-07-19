@@ -1,7 +1,14 @@
+import PageHeader from "../../utilities/components/pageHeader";
+
 function PendingCredits(){
     return (
-        <div className="container mx-auto" style={{"width":"200px"}}>
-           Pending Credits
+        <div className="container">
+            <div className="row">
+                <PageHeader title={"Pending Credits"} />
+                <div className="container-fluid">
+                
+                </div>
+            </div>
         </div>
     )
 }

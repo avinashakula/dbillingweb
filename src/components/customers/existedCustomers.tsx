@@ -1,10 +1,10 @@
 import PageHeader from "../../utilities/components/pageHeader";
 
-function Purchasers() {
+function ExistedCustomers() {
   return (
     <div className="container">
       <div className="row">
-        <PageHeader title={"Purchasers"} />
+        <PageHeader title={"Existed Customers"} />
         <div className="container-fluid">
           
         </div>
@@ -13,4 +13,4 @@ function Purchasers() {
   );
 }
 
-export default Purchasers;
+export default ExistedCustomers;

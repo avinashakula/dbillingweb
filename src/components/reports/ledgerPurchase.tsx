@@ -1,10 +1,10 @@
 import PageHeader from "../../utilities/components/pageHeader";
 
-function AddModerators(){
+function LedgerPurchase(){
     return (
         <div className="container">
             <div className="row">
-                <PageHeader title={"Add Moderator"} />
+                <PageHeader title={"Ledger Purchase"} />
                 <div className="container-fluid">
                 
                 </div>
@@ -13,4 +13,4 @@ function AddModerators(){
     )
 }
 
-export default AddModerators;
+export default LedgerPurchase;

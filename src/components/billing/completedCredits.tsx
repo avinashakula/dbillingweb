@@ -1,7 +1,14 @@
+import PageHeader from "../../utilities/components/pageHeader";
+
 function CompletedCredits(){
     return (
-        <div className="container mx-auto" style={{"width":"200px"}}>
-           Completed Credits
+        <div className="container">
+            <div className="row">
+                <PageHeader title={"Completed Credits"} />
+                <div className="container-fluid">
+                
+                </div>
+            </div>
         </div>
     )
 }

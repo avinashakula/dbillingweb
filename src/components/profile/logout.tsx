@@ -1,16 +1,14 @@
 import PageHeader from "../../utilities/components/pageHeader";
 
-function Purchasers() {
+function Logout() {
   return (
     <div className="container">
       <div className="row">
-        <PageHeader title={"Purchasers"} />
-        <div className="container-fluid">
-          
-        </div>
+        <PageHeader title={"Logout"} />
+        <div className="container-fluid"></div>
       </div>
     </div>
   );
 }
 
-export default Purchasers;
+export default Logout;

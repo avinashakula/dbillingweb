@@ -43,7 +43,7 @@ function NavBar() {
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link className="dropdown-item" to="/billing">
+                    <Link className="dropdown-item" to="/billing/newBilling">
                       Billing
                     </Link>
                   </li>
@@ -101,8 +101,8 @@ function NavBar() {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/stock">
-                      Stock
+                    <Link className="dropdown-item" to="/stock/existedStock">
+                      Existed Stock
                     </Link>
                   </li>
                   <li>
@@ -123,7 +123,7 @@ function NavBar() {
                 </ul>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/ledgeRetail">
+                <Link className="nav-link" to="/ledgerRetail">
                   Ledger Retail
                 </Link>
               </li>
@@ -149,8 +149,8 @@ function NavBar() {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/customers">
-                      Customers
+                    <Link className="dropdown-item" to="/customers/existedCustomers">
+                    Existed Customers
                     </Link>
                   </li>
                   <li>
@@ -177,16 +177,13 @@ function NavBar() {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/moderators">
-                      Moderators
+                    <Link className="dropdown-item" to="/moderators/existedModerators">
+                    Existed Moderators
                     </Link>
                   </li>
                 </ul>
               </li>
-
-              {/* <li className="nav-item">
-                            <Link className="nav-link disabled">Profile</a>
-                        </li> */}
+             
             </ul>
 
             <div className="d-flex" role="profile">
@@ -201,12 +198,12 @@ function NavBar() {
                 </button>
                 <ul className="dropdown-menu dropdown-menu-end">
                   <li>
-                    <Link className="dropdown-item" to="/password">
-                      Password
+                    <Link className="dropdown-item" to="/profile/changePassword">
+                      Change Password
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/logout">
+                    <Link className="dropdown-item" to="/profile/logout">
                       Logout
                     </Link>
                   </li>
@@ -216,7 +213,6 @@ function NavBar() {
           </div>
         </div>
       </nav>
-      <Outlet />
     </>
   );
 }

@@ -1,7 +1,14 @@
+import PageHeader from "../../utilities/components/pageHeader";
+
 function CreateMeasure(){
     return (
-        <div className="container mx-auto" style={{"width":"200px"}}>
-            Create Measure
+        <div className="container">
+            <div className="row">
+                <PageHeader title={"Create Measure"} />
+                <div className="container-fluid">
+                
+                </div>
+            </div>
         </div>
     )
 }

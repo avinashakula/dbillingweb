@@ -1,10 +1,10 @@
 import PageHeader from "../../utilities/components/pageHeader";
 
-function AddModerators(){
+function ExistedModerators(){
     return (
         <div className="container">
             <div className="row">
-                <PageHeader title={"Add Moderator"} />
+                <PageHeader title={"Existed Moderators"} />
                 <div className="container-fluid">
                 
                 </div>
@@ -13,4 +13,4 @@ function AddModerators(){
     )
 }
 
-export default AddModerators;
+export default ExistedModerators;
