@@ -30,6 +30,7 @@ import LedgerPurchase from "./components/reports/ledgerPurchase";
 import ChangePassword from "./components/profile/changePassword";
 import Logout from "./components/profile/logout";
 import Profile from "./components/profile/profile";
+import Login from "./components/login/login";
 
 function App() {
   return (
@@ -37,8 +38,9 @@ function App() {
       <NavBar />
 
       <Routes>
+        <Route path="" element={<Login />} />
         <Route path="home" element={<Home />} />
-        <Route path="billing" element={<Billing />} >
+        <Route path="billing" element={<Billing />}>
           <Route path="newBilling" element={<NewBilling />} />
           <Route path="allTransactions" element={<AllTransactions />} />
           <Route path="bills" element={<Bills />} />
@@ -46,7 +48,7 @@ function App() {
           <Route path="pendingCredits" element={<PendingCredits />} />
           <Route path="completedCredits" element={<CompletedCredits />} />
           <Route path="payments" element={<Payments />} />
-          <Route path="pendingInvoices" element={<PendingInvoices />} />        
+          <Route path="pendingInvoices" element={<PendingInvoices />} />
         </Route>
         <Route path="stock" element={<Stock />}>
           <Route path="add" element={<AddStock />} />

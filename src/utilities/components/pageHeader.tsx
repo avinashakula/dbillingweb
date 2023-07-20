@@ -1,9 +1,10 @@
 interface Props{
-    title: string
+    title: string,
+    textAlign?: string
 }
 export default function(props:Props){
-    const {title} = props;
+    const {title, textAlign} = props;
     return (
-        <h5 className="mt-3 fw-medium page-header">{title}</h5>
+        <h5 className={textAlign ? textAlign+' mt-3 fw-medium page-header' : `text-left mt-3 fw-medium page-header`}>{title}</h5>
     )
 }

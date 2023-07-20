@@ -28,7 +28,6 @@ function AddCustomers() {
 
   return (
     <div className="container">
-      <div className="row">
         <PageHeader title={"Add Customer"} />
         <div className="container-fluid">
           <div className="col-md-6 offset-md-3 bg-white p-3 rounded-4 shadow-sm">
@@ -85,7 +84,6 @@ function AddCustomers() {
             {/* </form> */}
           </div>
         </div>
-      </div>
     </div>
   );
 }
