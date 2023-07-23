@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import * as CONSTANT from "../utilities/constants/default";
+import { useSelector } from "react-redux";
 
 function NavBar() {
+  const customers = useSelector(state=>state.customers)
   return (
     <>
       {/* <nav className="navbar navbar-expand-lg bg-body-tertiary"> */}
@@ -213,7 +215,7 @@ function NavBar() {
                   aria-expanded="false"
                 >
                   <i className="bi bi-person-circle"></i>{" "}
-                  {CONSTANT.navBar.PROFILE}
+                  {CONSTANT.navBar.PROFILE} {customers.length}
                 </button>
                 <ul className="dropdown-menu dropdown-menu-end">
                   <li>

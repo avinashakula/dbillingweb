@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import PageHeader from "../../utilities/components/pageHeader";
+import { useDispatch } from "react-redux";
+import {add} from '../../store/customersSlice'
 function AddCustomers() {
+  const dispatch = useDispatch();
   const [customerData, setCustomerData] = useState({});
   const updateCustomersData = (e:any) => {
     if( e.target.name == "type" ){
@@ -23,7 +26,9 @@ function AddCustomers() {
   }
 
   const sendCustomersData = ()=>{
+    // dispatch add action
     console.log(customerData);
+    dispatch(add(customerData));
   }
 
   return (

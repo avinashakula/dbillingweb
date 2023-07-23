@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from "react-router-dom";
 import NavBar from "./navbar/Navbar";
 import Home from "./components/home/home";
 
@@ -31,15 +31,14 @@ import ChangePassword from "./components/profile/changePassword";
 import Logout from "./components/profile/logout";
 import Profile from "./components/profile/profile";
 import Login from "./components/login/login";
+import RootLayout from "./navbar/rootLayout";
 
 function App() {
-  return (
-    <>
-      <NavBar />
 
-      <Routes>
+  const router = createBrowserRouter(createRoutesFromElements(
+    <Route path="/" element={<RootLayout />}>
         <Route path="" element={<Login />} />
-        <Route path="home" element={<Home />} />
+        <Route index path="home" element={<Home />} />
         <Route path="billing" element={<Billing />}>
           <Route path="newBilling" element={<NewBilling />} />
           <Route path="allTransactions" element={<AllTransactions />} />
@@ -73,7 +72,51 @@ function App() {
           <Route path="logout" element={<Logout />} />
         </Route>
         <Route path="*" element={<NoMatch />} />
-      </Routes>
+    </Route>
+  ))
+
+  return (
+    <>
+        <RouterProvider router={router} />
+     
+      {/* <NavBar />
+      <Route path="/" element={<RootLayout />}>
+        <Route path="" element={<Login />} />
+        <Route index path="home" element={<Home />} />
+        <Route path="billing" element={<Billing />}>
+          <Route path="newBilling" element={<NewBilling />} />
+          <Route path="allTransactions" element={<AllTransactions />} />
+          <Route path="bills" element={<Bills />} />
+          <Route path="purchases" element={<Purchases />} />
+          <Route path="pendingCredits" element={<PendingCredits />} />
+          <Route path="completedCredits" element={<CompletedCredits />} />
+          <Route path="payments" element={<Payments />} />
+          <Route path="pendingInvoices" element={<PendingInvoices />} />
+        </Route>
+        <Route path="stock" element={<Stock />}>
+          <Route path="add" element={<AddStock />} />
+          <Route path="existedStock" element={<ExistedStock />} />
+          <Route path="inactive" element={<InactiveStock />} />
+          <Route path="createMeasure" element={<CreateMeasure />} />
+          <Route path="inactiveMeasure" element={<InactiveMeasure />} />
+        </Route>
+        <Route path="ledgerRetail" element={<LedgerRetail />} />
+        <Route path="ledgerPurchase" element={<LedgerPurchase />} />
+        <Route path="customers" element={<Customers />}>
+          <Route path="add" element={<AddCustomers />} />
+          <Route path="existedCustomers" element={<ExistedCustomers />} />
+          <Route path="purchasers" element={<Purchasers />} />
+        </Route>
+        <Route path="moderators" element={<Moderators />}>
+          <Route path="add" element={<AddModerators />} />
+          <Route path="existedModerators" element={<ExistedModerators />} />
+        </Route>
+        <Route path="profile" element={<Profile />}>
+          <Route path="changePassword" element={<ChangePassword />} />
+          <Route path="logout" element={<Logout />} />
+        </Route>
+        <Route path="*" element={<NoMatch />} />
+      </Route> */}
     </>
   );
 }
