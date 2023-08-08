@@ -1,94 +1,107 @@
 import { useState, useEffect } from "react";
 import PageHeader from "../../utilities/components/pageHeader";
-import { useDispatch } from "react-redux";
-import {add} from '../../store/customersSlice'
+import { useDispatch, useSelector } from "react-redux";
+import { add } from "../../store/customersSlice";
+import TextInput from "../../utilities/components/textInput";
+import TextareaInput from "../../utilities/components/textareaInput";
+import { addCustomers } from "../../utilities/constants/customers";
+import SelectInput from "../../utilities/components/selectInput";
+import { typeOfPersonList } from "../../utilities/mock/customers";
+import Button from "../../utilities/components/button";
 function AddCustomers() {
   const dispatch = useDispatch();
+  const customresList = useSelector((state: any) => state);
   const [customerData, setCustomerData] = useState({});
-  const updateCustomersData = (e:any) => {
-    if( e.target.name == "type" ){
-      setCustomerData({...customerData, type:e.target.value});
-    }else if( e.target.name == "name" ){
-      setCustomerData({...customerData, name:e.target.value});
-    }else if( e.target.name == "mobile" ){
-      setCustomerData({...customerData, mobile:e.target.value});
-    }else if( e.target.name == "state" ){
-      setCustomerData({...customerData, state:e.target.value});
-    }else if( e.target.name == "city" ){
-      setCustomerData({...customerData, city:e.target.value});
-    }else if( e.target.name == "pincode" ){
-      setCustomerData({...customerData, pincode:e.target.value});
-    }else if( e.target.name == "gstin" ){
-      setCustomerData({...customerData, gstin:e.target.value});
-    }else if( e.target.name == "address" ){
-      setCustomerData({...customerData, address:e.target.value});
-    }
-  }
 
-  const sendCustomersData = ()=>{
+  const onSubmit = () => {
     // dispatch add action
-    console.log(customerData);
     dispatch(add(customerData));
-  }
+  };
+
+  const onInputChange = (input: any) => {
+    let name = input?.target?.name;
+    let value = input?.target?.value;
+    setCustomerData({ ...customerData, [name]: value });
+  };
+
+  useEffect(() => {
+    console.log("customresList", customresList);
+  }, [customresList]);
 
   return (
     <div className="container">
-        <PageHeader title={"Add Customer"} />
-        <div className="container-fluid">
-          <div className="col-md-6 offset-md-3 bg-white p-3 rounded-4 shadow-sm">
-            {/* <form> */}
-              <div className="mb-3">
-                <label className="form-label">Type of Person</label>
-                <select
-                  name="type"
-                  className="form-control"
-                  aria-describedby="typeOfUser"
-                  onChange={updateCustomersData}
-                >
-                  <option value={"customer"}>Customer</option>
-                  <option value={"purchaser"}>Purchaser</option>
-                </select>
-              </div>
-              <div className="mb-3">
-                <label className="form-label">Name</label>
-                <input name="name" type="text" className="form-control" onKeyUp={updateCustomersData} />
-              </div>
-              <div className="mb-3">
-                <label className="form-label">Mobile</label>
-                <input name="mobile" type="text" className="form-control" onKeyUp={updateCustomersData} />
-              </div>
-
-              <div className="row mb-3">
-                <div className="col-md-6">
-                  <label className="form-label">State</label>
-                  <input name="state" type="text" className="form-control" onKeyUp={updateCustomersData} />
-                </div>
-                <div className="col-md-6">
-                  <label className="form-label">City</label>
-                  <input name="city" type="text" className="form-control" onKeyUp={updateCustomersData} />
-                </div>
-              </div>
-              <div className="row mb-3">
-                <div className="col-md-6">
-                  <label className="form-label">Pincode</label>
-                  <input name="pincode" type="text" className="form-control" onKeyUp={updateCustomersData} />
-                </div>
-                <div className="col-md-6">
-                  <label className="form-label">GSTIN</label>
-                  <input name="gstin" type="text" className="form-control" onKeyUp={updateCustomersData} />
-                </div>
-              </div>
-
-              <div className="mb-3">
-                <label className="form-label">Address</label>
-                <textarea  name="address" className="form-control"  onKeyUp={updateCustomersData}/>
-              </div>
-              <button type="submit" className="btn btn-primary" onClick={sendCustomersData}>
-                Submit
-              </button>
-            {/* </form> */}
+      <PageHeader title={addCustomers.ADDCUSTOMER} />
+      <div className="container-fluid">
+        <div className="col-md-6 offset-md-3 bg-white p-3 rounded-4 shadow-sm">
+          {/* <form> */}
+          <div className="mb-3">
+            <SelectInput
+              label={addCustomers.TYPEOFPERSON}
+              name={addCustomers.typeOfPerson}
+              onInputChange={onInputChange}
+              list={typeOfPersonList}
+            />
           </div>
+          <div className="mb-3">
+            <TextInput
+              label={addCustomers.NAME}
+              name={addCustomers.NAME.toLowerCase()}
+              onInputChange={onInputChange}
+            />
+          </div>
+          <div className="mb-3">
+            <TextInput
+              label={addCustomers.MOBILE}
+              name={addCustomers.MOBILE.toLowerCase()}
+              onInputChange={onInputChange}
+            />
+          </div>
+
+          <div className="row mb-3">
+            <div className="col-md-6">
+              <TextInput
+                label={addCustomers.STATE}
+                name={addCustomers.STATE.toLowerCase()}
+                onInputChange={onInputChange}
+              />
+            </div>
+            <div className="col-md-6">
+              <TextInput
+                label={addCustomers.CITY}
+                name={addCustomers.CITY.toLowerCase()}
+                onInputChange={onInputChange}
+              />
+            </div>
+          </div>
+          <div className="row mb-3">
+            <div className="col-md-6">
+              <TextInput
+                label={addCustomers.PINCODE}
+                name={addCustomers.PINCODE.toLowerCase()}
+                onInputChange={onInputChange}
+              />
+            </div>
+            <div className="col-md-6">
+              <TextInput
+                label={addCustomers.GSTIN}
+                name={addCustomers.GSTIN.toLowerCase()}
+                onInputChange={onInputChange}
+              />
+            </div>
+          </div>
+
+          <div className="mb-3">
+            <TextareaInput
+              label={addCustomers.ADDRESS}
+              name={addCustomers.ADDRESS.toLowerCase()}
+              onInputChange={onInputChange}
+            />
+          </div>
+
+          <Button label="Submit" bg="btn-primary" onSubmit={onSubmit} />
+          {/* </form> */}
         </div>
+      </div>
     </div>
   );
 }
